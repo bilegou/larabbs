@@ -10,9 +10,15 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="media">
+                    @if(!$user->avatar)
                     <div align="center">
                         <img class="thumbnail img-responsive" src="https://fsdhubcdn.phphub.org/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/600/h/600" width="300px" height="300px">
                     </div>
+                    @else
+                     <div align="center">
+                        <img class="thumbnail img-responsive" src="{{ $user->avatar }}" width="300px" height="300px">
+                    </div>
+                    @endif
                     <div class="media-body">
                         <hr>
                         <h4><strong>个人简介</strong></h4>
