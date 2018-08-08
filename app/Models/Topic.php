@@ -4,7 +4,7 @@ namespace App\Models;
 
 class Topic extends Model
 {
-    protected $fillable = ['title', 'body', 'user_id', 'category_id', 'reply_count', 'view_count', 'last_reply_user_id', 'order', 'excerpt', 'slug'];
+    protected $fillable = ['title', 'body', 'category_id','excerpt', 'slug'];
 
     public function category(){
 
@@ -16,7 +16,7 @@ class Topic extends Model
     	return $this->belongsTo(User::class);
     }
 
-
+    
 
     public function scopeWithOrder($query,$order){
 
@@ -42,6 +42,5 @@ class Topic extends Model
 
   		return 	$query->orderBy('updated_at','desc');
     }
-
-
+    
 }
