@@ -75,7 +75,7 @@ class TopicsController extends Controller
 		];
 
 		$file = $request->upload_file;
-		
+
 		if($file){
 
 		$result = $uploader->save($request->upload_file,'topics',\Auth::id(),1024);
@@ -89,7 +89,6 @@ class TopicsController extends Controller
 			}
 
 		}
-
 		return $data;
 	}
 }
