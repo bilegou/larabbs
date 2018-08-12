@@ -72,13 +72,12 @@
         var editor = new Simditor({
             textarea: $('#editor'),
 
-            upload:{
-
-                url:"{{ route('topics.upload_image') }}",
-                params:{ _token:'{{ csrf_token() }}' },
+            upload: {
+                url: '{{ route('topics.upload_image') }}',
+                params: { _token: '{{ csrf_token() }}' },
                 fileKey: 'upload_file',
                 connectionCount: 3,
-                leaveConfirm:'文件上传中，关闭此页面将取消上传。',
+                leaveConfirm: '文件上传中，关闭此页面将取消上传。'
             },
             pasteImage: true,
         });
@@ -86,3 +85,4 @@
     </script>
 
 @stop
+
