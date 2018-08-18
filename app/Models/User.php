@@ -20,7 +20,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
+     * The attributes that should be hidden     for arrays.
      *
      * @var array
      */
@@ -37,5 +37,11 @@ class User extends Authenticatable
     public function isAuthorOf($model){
 
       return $this->id == $model->user_id;
+    }
+
+    //一个用户对多条回复信息
+    public function replies(){
+
+        return $this->hasMany(Reply::class);
     }
 }

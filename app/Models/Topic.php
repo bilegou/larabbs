@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Models\Reply;
 
 class Topic extends Model
 {
@@ -16,7 +17,10 @@ class Topic extends Model
     	return $this->belongsTo(User::class);
     }
 
-    
+    public function replies(){
+
+        return $this->hasMany(Reply::class);
+    }
 
     public function scopeWithOrder($query,$order){
 
