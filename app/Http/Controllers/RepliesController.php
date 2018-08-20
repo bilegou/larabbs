@@ -14,6 +14,13 @@ class RepliesController extends Controller
 	public function store(ReplyRequest $request,Reply $reply)
 	{
 
+
+ 		$content = clean($request->get('content'));
+
+		if(empty($content)){
+			return redirect()->back()->with('success','别乱搞老哥。');
+		}
+
 		$reply->topic_id = $request->topic_id;
 		$reply->user_id = Auth::user()->id;
 		$reply->content = $request->content;
