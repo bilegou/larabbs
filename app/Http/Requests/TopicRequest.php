@@ -12,7 +12,6 @@ class TopicRequest extends Request
             case 'POST':
             {
                 return [
-                    // CREATE ROLES
                 ];
             }
             // UPDATE
