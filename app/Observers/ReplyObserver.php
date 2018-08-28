@@ -12,13 +12,16 @@ class ReplyObserver
 {
     public function creating(Reply $reply)
     {
-        // $reply->content = clean($reply->content, 'user_topic_body');
+        $reply->content = clean($reply->content, 'user_topic_body');
     }
 
     public function created(Reply $reply)
     {
         $topic = $reply->topic;
         $topic->increment('reply_count',1);
+
+        //通知被回复的user
+        $data = new TopicReplied($reply);
 
         $topic->user->notify(new TopicReplied($reply));
     }

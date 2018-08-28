@@ -31,6 +31,8 @@ class TranslateSlug implements ShouldQueue
      *
      * @return void
      */
+
+    //翻译的最终插入更新。
     public function handle()
     {
         $slug = app(SlugTranslateHandler::class)->translate($this->topic->title);
