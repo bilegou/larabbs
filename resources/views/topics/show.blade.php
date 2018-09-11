@@ -64,12 +64,38 @@
             </div>
         </div>
          {{-- 用户回复列表 --}}
+         @if($topic->replies->count() > 0)
         <div class="panel panel-default topic-reply">
             <div class="panel-body">
                 @includeWhen(Auth::check(), 'topics._reply_box', ['topic' => $topic])
                 @include('topics._reply_list', ['replies' => $topic->replies()->with('user')->get()])
             </div>
         </div>
+        @else
+        @if(!Auth::check())
+        <div class="panel panel-default topic-reply">
+            <div class="panel-body" style="color: #4aaade">
+                <a href="{{ route('login') }}">还没有人回复哦，抢个沙发板凳吧～</a>
+            </div>
+        </div>
+        @else
+        <div class="panel panel-default topic-reply">
+            <div class="panel-body" style="color: #4aaade">
+                还没有人回复哦，抢个沙发板凳吧～
+            </div>
+        </div>
+        @endif
+        @if(Auth::check())
+        <div class="panel panel-default topic-reply">
+            <div class="panel-body">
+                @includeWhen(Auth::check(), 'topics._reply_box', ['topic' => $topic])
+            </div>
+        </div>
+        @else
+        @includeWhen(Auth::check(), 'topics._reply_box', ['topic' => $topic])
+        @endif
+
+        @endif
     </div>
 </div>
 @stop
