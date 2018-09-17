@@ -1,22 +1,22 @@
 <?php
 
-use App\Models\User;
+use App\Models\Topic;
 
 return [
     // 页面标题
-    'title'   => '用户',
+    'title'   => '文章',
 
     // 模型单数，用作页面『新建 $single』
-    'single'  => '用户',
+    'single'  => '文章',
 
     // 数据模型，用作数据的 CRUD
-    'model'   => User::class,
+    'model'   => Topic::class,
 
     // 设置当前页面的访问权限，通过返回布尔值来控制权限。
     // 返回 True 即通过权限验证，False 则无权访问并从 Menu 中隐藏
     'permission'=> function()
     {
-        return Auth::user()->can('manage_users');
+        return Auth::user()->can('manage_contents');
     },
 
     // 字段负责渲染『数据表格』，由无数的『列』组成，
@@ -97,12 +97,6 @@ return [
 
             // 过滤表单条目显示名称
             'title' => '用户 ID',
-        ],
-        'name' => [
-            'title' => '用户名',
-        ],
-        'email' => [
-            'title' => '邮箱',
         ],
     ],
 ];
