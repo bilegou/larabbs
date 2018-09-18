@@ -9,8 +9,6 @@ class ReplysTableSeeder extends Seeder
 {
     public function run()
     {
-        
-            
             $user_ids = User::all()->pluck('id')->toArray();
             $topic_ids = Topic::all()->pluck('id')->toArray();
 
@@ -23,6 +21,6 @@ class ReplysTableSeeder extends Seeder
 				$reply->topic_id = $faker->randomElement($topic_ids);
       		});
 
-        Reply::insert($replys->toArray());
+             $result =  Reply::insert($replys->toArray());
     }
 }

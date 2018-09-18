@@ -39,7 +39,7 @@
 
                     @if($user->avatar)
                         <br>
-                        <img class="thumbnail img-responsive" src="{{ $user->avatar }}" width="200" />
+                        <img class="thumbnail img-responsive" id='iamge' src="{{ $user->avatar }}" width="200" />
                     @endif
                 </div>
                 <div class="well well-sm">
@@ -49,5 +49,4 @@
         </div>
     </div>
 </div>
-
 @endsection
