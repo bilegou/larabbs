@@ -10,4 +10,14 @@ class PagesController extends Controller
 
     	return view('pages.root');
     }
+
+    public function permissionDenied()
+    {
+    	if(config('administator.permission')){
+
+    		return redirect(url(config('administator.url')),302);
+    	}
+    	
+    	return view('pages.permission_denied');
+    }
 }
