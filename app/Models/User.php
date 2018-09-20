@@ -7,11 +7,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Auth;
 use Spatie\Permission\Traits\HasRoles;
 
-
 class User extends Authenticatable
 {
 
     use HasRoles;
+
+    use Traits\ActiveUserHelper;
 
     use Notifiable {
         notify as protected laravelNotify;
@@ -93,18 +94,5 @@ class User extends Authenticatable
 
         $this->attributes['password'] = $value;
     }
-
-    // public function getPasswordAttribute($value){
-
-    //     if (strlen($value) != 60) {
-
-    //         // 不等于 60，做密码加密处理
-    //         $value = bcrypt($value);
-    //     }
-
-    //     $this->attributes['password'] = $value;
-    // }
-
-
 
 }

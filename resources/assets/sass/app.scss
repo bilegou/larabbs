@@ -200,3 +200,22 @@ body {
     }
 }
 
+.sidebar {
+    .panel-body {
+        padding: 12px;
+    }
+
+    hr {
+        margin-top: 8px;
+        margin-bottom: 10px;
+    }
+
+    .active-users {
+        a.media {
+            color: #797878;
+            line-height: 36px;
+            font-size: 0.9em;
+        }
+    }
+}
+
