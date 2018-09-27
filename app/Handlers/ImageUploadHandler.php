@@ -3,7 +3,7 @@ namespace App\Handlers;
 use Image;
 class ImageUploadHandler{
 	
-	protected $allowed_ext = ["png", "jpg", "gif", 'jpeg'];
+	protected $allowed_ext = ["png", "jpg", "gif", "jpeg","bmp"];
 
 
 	public function save($file,$folder,$file_prefix,$max_width=false){
@@ -25,11 +25,11 @@ class ImageUploadHandler{
 			return false;
 		}
 
-		$file->move($upload_path,$filename );
+		$file->move($upload_path,$filename);
 
 		if($max_width && $extention != 'gif'){
-
-			$this->reduceSize($upload_path.'/'.$filename,$max_width);
+			
+				$this->reduceSize($upload_path.'/'.$filename,$max_width);
 		}
 
 		return ["path"=>config('app.url')."/$folder_name/$filename"];
@@ -47,5 +47,13 @@ class ImageUploadHandler{
 
 			$image->save();
 	}
+
+
+	// public function avatarReduceSize($file_path,$max_width){
+
+	// 		$image = Image::make($file_path);
+	// 		$image->resize(180,180);
+	// 		$image->save();
+	// }
 
 }

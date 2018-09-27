@@ -93,7 +93,7 @@
         </div>
         @else
         @includeWhen(Auth::check(), 'topics._reply_box', ['topic' => $topic])
-        @endifs
+        @endif
         @endif
     </div>
 </div>
