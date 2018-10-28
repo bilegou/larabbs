@@ -15,20 +15,20 @@ class SeedCategoriesData extends Migration
     {
         $categories = [
             [
-                'name'        => '分享',
-                'description' => '分享创造，分享发现',
+                'name'        => 'laravel讨论',
+                'description' => '分享学习方法，探讨发现',
             ],
             [
-                'name'        => '教程',
-                'description' => '开发技巧、推荐扩展包等',
+                'name'        => '前端技术讨论',
+                'description' => '前端框架开发、js,css推荐扩展包等',
             ],
             [
-                'name'        => '问答',
-                'description' => '请保持友善，互帮互助',
+                'name'        => '后端技术讨论',
+                'description' => '后端框架开发，数据库以及composer依赖',
             ],
             [
-                'name'        => '公告',
-                'description' => '站点公告',
+                'name'        => '综合讨论区',
+                'description' => '开发爱好者综合讨论，水贴地方',
             ],
         ];
 

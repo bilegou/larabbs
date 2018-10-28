@@ -1,6 +1,17 @@
-@extends('layouts.app')
-@section('title', '首页')
+<script src="{{ asset('js/vue.min.js') }}"></script>
 
-@section('content')
-  <h1>这里是首页</h1>
-@stop
+<div v-bind:class="[activeClass, errorClass]"></div>
+
+
+<script type="text/javascript">
+
+var show = new Vue({
+
+data: {
+  activeClass: 'active',
+  errorClass: 'text-danger'
+}
+
+})
+
+</script>

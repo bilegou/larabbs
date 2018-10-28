@@ -17,4 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/', 'PagesController@root')->name('root');
+Route::get('/test', 'PagesController@root')->name('root');
+
+Route::get('/test/{year}/{month}', 'PagesController@getCount')->name('getcount');
+
+Route::match(['get','post'],'/postuser/{id?}/{name?}','PagesController@postCount')->name('postcount');
+
+Route::post('/validate','Test@requestData');

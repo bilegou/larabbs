@@ -8,9 +8,9 @@ class Category extends Model
 {
     	protected $fillable = [  'name', 'description',];
 
-    	// public function topics(){
+    	public function topics(){
 
-    	// 	return $this->hasOne(Topics::class,'category_id','id');
-    	// }
+    		return $this->hasOne(Topics::class,'category_id','id');
+    	}
 
 }

@@ -13,9 +13,13 @@
 
 Route::get('/', 'TopicsController@index')->name('root');
 
+Route::get('/ajax', 'PagesController@ajax')->name('ajax');
+
+Route::get('/get_weather', 'PagesController@getWeatherData')->name('weather');
+
+Route::get('/respon_weather/t/{timeStamp}/r/{randomStr}/s/{signature}', 'Weather@respon');
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 // Auth::routes();等同于下面
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login');
@@ -53,3 +57,5 @@ Route::resource('replies', 'RepliesController', ['only' => ['store','destroy']])
 Route::resource('notifications','NotificationsController',['only'=>['index']]);
 
 Route::get('permission-denied', 'PagesController@permissionDenied')->name('permission-denied');
+
+

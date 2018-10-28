@@ -40,7 +40,6 @@ class UserRequest extends FormRequest
             'name.unique'=>'名字已被占用',
             'name.between'=>'名称在3-25个字符之间',
             'name.required'=>'名称必填',
-
         ];
     }
 }
