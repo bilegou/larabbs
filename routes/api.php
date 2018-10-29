@@ -13,14 +13,30 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+// Route::get('/test', 'PagesController@root')->name('root');
+
+// Route::get('/test/{year}/{month}', 'PagesController@getCount')->name('getcount');
+
+// Route::match(['get','post'],'/postuser/{id?}/{name?}','PagesController@postCount')->name('postcount');
+
+// Route::post('/validate','Test@requestData');
+
+//dingo api
+$api = app('Dingo\Api\Routing\Router');
+
+$api->version('v1', function($api) {
+    $api->get('version', function() {
+        return response('this is version v1');
+    });
 });
 
-Route::get('/test', 'PagesController@root')->name('root');
+$api->version('v2', function($api) {
+    $api->get('version', function() {
+        return response('this is version v2');
+    });
+});
 
-Route::get('/test/{year}/{month}', 'PagesController@getCount')->name('getcount');
-
-Route::match(['get','post'],'/postuser/{id?}/{name?}','PagesController@postCount')->name('postcount');
-
-Route::post('/validate','Test@requestData');
