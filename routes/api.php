@@ -41,6 +41,8 @@ $api->version('v1',['namespace' => 'App\Http\Controllers\Api'],function($api) {
 
    //用户验证码
     $api->post('users', 'UsersController@store')->name('api.users.store');
+    
+    $api->post('captchas', 'CaptchasController@store')->name('api.captchas.store');
 
    });
 
