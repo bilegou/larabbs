@@ -26,7 +26,7 @@ class VerificationCodesController extends Controller
         // 生成4位随机数，左侧补0
 
     if (!app()->environment('production')) {
-    		$code = '1234';
+    		$code = '1235';
     		
 	} else {
 
