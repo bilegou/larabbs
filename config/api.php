@@ -170,6 +170,7 @@ return [
 
     'auth' => [
 
+         'jwt' => 'Dingo\Api\Auth\Provider\JWT',
     ],
 
     /*
@@ -232,11 +233,5 @@ return [
             'limit'  => env('SIGN_RATE_LIMITS', 10),
         ],
     ],
-
-    'weixin' => [
-    'client_id' => env('WEIXIN_KEY'),
-    'client_secret' => env('WEIXIN_SECRET'),
-    'redirect' => env('WEIXIN_REDIRECT_URI'),  
-    ], 
 
 ];
