@@ -4,32 +4,24 @@ use Illuminate\Http\Request;
 use Carbon;
 
 class Weather{
-
 	protected $token = 'API';
 
-	public function respon(Request $Request){
 
-		$timeStamp = $Request->timeStamp;
 
-		$randomStr = $Request->randomStr;
 
-		$signature = $Request->signature;
+	public function respon(){
 
-		$str = $this->arithmetic($timeStamp,$randomStr);
+		$data = [
 
-		  $arr['name'] = 'api';
-		  $arr['age'] = 15;
-		  $arr['address'] = 'zz';
-		  $arr['ip'] = "192.168.0.1";	
+			'name'=>'消炎',
+			'code'=>'9527'
 
-		if($str !== $signature){
+		];
 
-			echo "-1";
-		}else{
+		$jsonhandle = $_GET['callback'];
 
-		return json_encode($arr);
+		echo $jsonhandle.'('.json_encode($data).')';
 	}
-}
 
 	 private function arithmetic($timeStamp,$randomStr){
 	  $arr['timeStamp'] = $timeStamp;
@@ -46,6 +38,5 @@ class Weather{
 	  $signature = strtoupper($signature);
 	  return $signature;
 	 }
-
 
 }
