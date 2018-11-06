@@ -76,6 +76,8 @@ $api->version('v1',['namespace' => 'App\Http\Controllers\Api','middleware'=>'ser
             $api->post('images', 'ImagesController@store')->name('api.images.store');
             //分类接口
             $api->get('categories','CategoriesController@index')->name('api.categories.index');
+            //增添文章接口
+            $api->post('topics','TopicsController@store')->name('api.topics.store');
 
         });
     });
