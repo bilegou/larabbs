@@ -13,7 +13,7 @@ class AuthorizationsController extends Controller
 
 	public function store(AuthorizationRequest $request){ //一般登录，手机、email
 
-    	$username = $request->username;
+    	$username = $request->username; //用户名（手机或email）
 
     	filter_var($username,FILTER_VALIDATE_EMAIL)?$credentials['email'] = $username:$credentials['phone'] = $username;
 
@@ -66,7 +66,6 @@ class AuthorizationsController extends Controller
     	switch ($type) {
     		case 'weixin':
     				$unionid = $oauthUser->offsetExists('unionid')?$oauthUser->offsetGet('unionid'):null;
-
     				if($unionid){
 
     					$user = User::where('weixin_unionid',$unionid)->first();
@@ -76,27 +75,22 @@ class AuthorizationsController extends Controller
     				}
 
     				if(!$user){
-
     				$user = User::create([
 
     						'name'=>$oauthUser->getNickname(),
     						'avatar'=>$oauthUser->getAvatar(),
     						'weixin_openid'=>$oauthUser->getId(),
     						'weixin_unionid'=>$unionid,
-
     					]);
     				}
-
     				break;
     	}
-
     	$token = Auth::guard('api')->fromUser($user);
-
     	return $this->respondWithToken($token)->setStatusCode(201);
     }
 
     public function respondWithToken($token){	//统一请求返回token格式
-
+        
     	return $this->response->array([
 			'access_token' => $token,
             'token_type' => 'Bearer',
@@ -108,15 +102,12 @@ class AuthorizationsController extends Controller
     public function update(){
 
     	$token = Auth::guard('api')->refresh();
-
     	return $this->respondWithToken($token);
-
     }
 
     public function destroy(){
 
     	Auth::guard('api')->logout();
-
     	return $this->response->noContent();
 
     }

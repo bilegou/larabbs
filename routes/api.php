@@ -68,12 +68,14 @@ $api->version('v1',['namespace' => 'App\Http\Controllers\Api','middleware'=>'ser
 
         // 需要 token 验证的接口
     $api->group(['middleware' => 'api.auth'], function($api) {
-            // 当前登录用户信息
+            // 当前登录用户信息接口
             $api->get('user', 'UsersController@me')->name('api.user.show');
-            //更新用户资料
+            //更新用户资料接口
             $api->patch('user','UsersController@update')->name('api.user.update');
-            //图片资源
+            //图片资源接口
             $api->post('images', 'ImagesController@store')->name('api.images.store');
+            //分类接口
+            $api->get('categories','CategoriesController@index')->name('api.categories.index');
 
         });
     });
