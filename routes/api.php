@@ -88,6 +88,8 @@ $api->version('v1',[
 
             //修改文章接口
             $api->patch('topics/{topic}','TopicsController@update')->name('api.topics.update');
+            //删除文章的接口
+            $api->delete('topics/{topic}','TopicsController@destroy')->name('api.topics.destroy');
 
         });
     });
