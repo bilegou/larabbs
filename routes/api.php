@@ -68,6 +68,13 @@ $api->version('v1',[
     ], function ($api) {
         // 游客可以访问的接口
 
+        //文章显示接口
+        $api->get('topics','TopicsController@index')->name('api.topics.index');
+        //指定用户文章显示接口
+        $api->get('users/{user}/topics','TopicsController@userIndex')->name('api.topics.userIndex');
+
+
+
         // 需要 token 验证的接口
     $api->group(['middleware' => 'api.auth'], function($api) {
 

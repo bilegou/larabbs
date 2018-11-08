@@ -39,7 +39,7 @@ class Topic extends Model
 
     public function scopeRecent($query){
 
-    	return $query->orderBy('created_at','desc');
+    	return $query->orderBy('created_at','desc'); 
     }
 
     public function scopeRecentReplied($query){

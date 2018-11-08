@@ -3,8 +3,13 @@ namespace app\Transformers;
 
 use App\Models\Topic;
 use League\Fractal\TransformerAbstract;
+use App\Transformers\UserTransformer;
+use App\Transformers\CategoryTransformer;
+
 
 class TopicTransformer extends TransformerAbstract{
+
+	protected $availableIncludes = ['user', 'category'];//启用包括的关联方法
 	
 	public function transform(Topic $topic){
 
@@ -25,5 +30,15 @@ class TopicTransformer extends TransformerAbstract{
 
 		];
 
+	}
+	//关联用户的方法
+	public function includeUser(Topic $topic){
+
+		return $this->item($topic->user,new UserTransformer());
+	}
+	//关联分类的方法
+	public function includeCategory(Topic $topic){
+
+		return $this->item($topic->category,new CategoryTransformer());
 	}
 }
