@@ -72,6 +72,9 @@ $api->version('v1',[
         $api->get('topics','TopicsController@index')->name('api.topics.index');
         //指定用户文章显示接口
         $api->get('users/{user}/topics','TopicsController@userIndex')->name('api.topics.userIndex');
+        //文章内容显示接口
+ $api->get('topics/{topic}', 'TopicsController@show')
+    ->name('api.topics.show');
 
 
 
