@@ -8,8 +8,6 @@ use App\Models\Reply;
 use App\Models\Topic;
 use App\Transformers\ReplyTransformer;
 
-
-
 class RepliesController extends Controller
 {
     
@@ -25,5 +23,19 @@ class RepliesController extends Controller
  		$reply->save();
 
  		return $this->response->item($reply,new ReplyTransformer)->setStatusCode(201);
+	}
+
+	public function destroy(Topic $topic,Reply $reply){
+
+		$this->authorize('destroy',$reply);
+
+		if($reply->topic_id != $topic->id){
+
+			return $this->response->errorBadRequest();
+		}
+
+		$reply->delete();
+
+		return $this->response->noContent();
 	}
 }
