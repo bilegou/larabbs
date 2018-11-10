@@ -100,6 +100,8 @@ $api->version('v1',[
             $api->patch('topics/{topic}','TopicsController@update')->name('api.topics.update');
             //删除文章的接口
             $api->delete('topics/{topic}','TopicsController@destroy')->name('api.topics.destroy');
+            //新增回复接口
+            $api->post('topics/{topic}/replies','RepliesController@store')->name('api.topics.replies.store');
 
         });
     });
