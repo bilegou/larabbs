@@ -122,6 +122,9 @@ $api->version('v1',[
             //未读消息统计接口
             $api->get('user/notifications/stat','NotificationsController@stat')->name('api.user.notifications.stat');
 
+            //标记已读接口
+            $api->get('user/notifications/read','NotificationsController@read')->name('api.user.notifications.read');
+
         });
     });
 
