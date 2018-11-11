@@ -79,9 +79,11 @@ $api->version('v1',[
 
         //获取文章回复接口
         $api->get('topics/{topic}/replies','RepliesController@index')->name('api.topics.replies.index');
-        
+
         //按用户查询回复接口
         $api->get('users/{user}/replies','RepliesController@userIndex')->name('api.users.replies.index');
+
+
 
 
         // 需要 token 验证的接口
@@ -113,6 +115,9 @@ $api->version('v1',[
 
             //删除回复接口
             $api->delete('topics/{topic}/replies/{reply}','RepliesController@destroy')->name('api.topics.replies.destroy');
+
+            //通知列表接口
+            $api->get('user/notifications','NotificationsController@index')->name('api.user.notifications.index');
 
 
         });
