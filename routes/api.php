@@ -70,12 +70,18 @@ $api->version('v1',[
 
         //文章显示接口
         $api->get('topics','TopicsController@index')->name('api.topics.index');
+
         //指定用户文章显示接口
         $api->get('users/{user}/topics','TopicsController@userIndex')->name('api.topics.userIndex');
-        //文章内容显示接口
- $api->get('topics/{topic}', 'TopicsController@show')
-    ->name('api.topics.show');
 
+        //文章内容显示接口
+        $api->get('topics/{topic}', 'TopicsController@show')->name('api.topics.show');
+
+        //获取文章回复接口
+        $api->get('topics/{topic}/replies','RepliesController@index')->name('api.topics.replies.index');
+        
+        //按用户查询回复接口
+        $api->get('users/{user}/replies','RepliesController@userIndex')->name('api.users.replies.index');
 
 
         // 需要 token 验证的接口
@@ -98,12 +104,16 @@ $api->version('v1',[
 
             //修改文章接口
             $api->patch('topics/{topic}','TopicsController@update')->name('api.topics.update');
+
             //删除文章的接口
             $api->delete('topics/{topic}','TopicsController@destroy')->name('api.topics.destroy');
+
             //新增回复接口
             $api->post('topics/{topic}/replies','RepliesController@store')->name('api.topics.replies.store');
+
             //删除回复接口
             $api->delete('topics/{topic}/replies/{reply}','RepliesController@destroy')->name('api.topics.replies.destroy');
+
 
         });
     });
