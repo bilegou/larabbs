@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Transformers\NotificationTransformer;
+use Illuminate\Notifications\DatabaseNotification as Notification;
 
 class NotificationsController extends Controller
 {
@@ -23,10 +24,10 @@ class NotificationsController extends Controller
     }
 
 
-    public function read(){
+    public function read(Notification $notification){
 
-    	$this->user()->markAsRead();
+        $notification->id ? $this->user()->markAsRead($notification) : $this->user()->markAsRead();
 
-    	return $this->response->noContent();
+        return $this->response->noContent();
     }
 }

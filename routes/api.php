@@ -122,8 +122,12 @@ $api->version('v1',[
             //未读消息统计接口
             $api->get('user/notifications/stat','NotificationsController@stat')->name('api.user.notifications.stat');
 
-            //标记已读接口
-            $api->get('user/notifications/read','NotificationsController@read')->name('api.user.notifications.read');
+            // //标记已读接口
+            // $api->get('user/notifications/read','NotificationsController@read')->name('api.user.notifications.read');
+            $api->patch('user/notifications/read/{id?}', 'NotificationsController@read')->name('api.user.notifications.read');
+
+            //当前登录用户权限
+            $api->get('user/permissions','permissionsController@index')->name('api.user.permissions.index');
 
         });
     });
