@@ -83,6 +83,9 @@ $api->version('v1',[
         //按用户查询回复接口
         $api->get('users/{user}/replies','RepliesController@userIndex')->name('api.users.replies.index');
 
+        //资源推荐借口
+        $api->get('links','LinksController@index')->name('api.links.index');
+
 
 
 
@@ -123,7 +126,7 @@ $api->version('v1',[
             $api->get('user/notifications/stat','NotificationsController@stat')->name('api.user.notifications.stat');
 
             // //标记已读接口
-            // $api->get('user/notifications/read','NotificationsController@read')->name('api.user.notifications.read');
+            // $api->get('user/notifications/read','NotificationsController@read')->name('api.user.notifications.read'); 
             $api->patch('user/notifications/read/{id?}', 'NotificationsController@read')->name('api.user.notifications.read');
 
             //当前登录用户权限
