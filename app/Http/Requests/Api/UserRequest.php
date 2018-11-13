@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Api;
 
 use Dingo\Api\Http\FormRequest;
+use Illuminate\Validation\Rule;
+
 
 class UserRequest extends FormRequest
 {
@@ -11,6 +13,8 @@ class UserRequest extends FormRequest
      *
      * @return bool
      */
+
+
     public function authorize()
     {
         return true;
@@ -37,10 +41,11 @@ class UserRequest extends FormRequest
             
             case 'PATCH':
             $userId = \Auth::guard('api')->id();
+
             return [
 
-                'name'=>'between:3,25|regex:/^[A-Za-z0-9\-\_]+$/|unique:users,name,' .$userId,
-                'email' => 'email',
+                'name'=>'between:3,25|unique:users,name,' .$userId,
+                'email' => ['required',Rule::unique('users')->ignore($userId)],
                 'introduction' => 'max:80',
                 'avatar_image_id' => 'exists:images,id,type,avatar,user_id,'.$userId,
             ];

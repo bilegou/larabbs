@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ab69115c32843ec8f7be48684f0dd8ed",
+    "content-hash": "9e9aa718a16cc7d1fb7e33371ceca9b3",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -1537,6 +1537,55 @@
                 }
             ],
             "time": "2015-04-20T18:58:01+00:00"
+        },
+        {
+            "name": "jpush/jpush",
+            "version": "v3.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jpush/jpush-api-php-client.git",
+                "reference": "1f6982e3bdc6785038949a8f519933c2ea111d6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jpush/jpush-api-php-client/zipball/1f6982e3bdc6785038949a8f519933c2ea111d6d",
+                "reference": "1f6982e3bdc6785038949a8f519933c2ea111d6d",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://dl.laravel-china.org/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JPush\\": "src/JPush/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "JPush",
+                    "email": "support@jpush.cn",
+                    "homepage": "https://www.jpush.cn/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "JPush API PHP Client",
+            "homepage": "https://github.com/jpush/jpush-api-php-client",
+            "time": "2018-09-27T09:20:41+00:00"
         },
         {
             "name": "laravel/framework",
@@ -5139,7 +5188,7 @@
         {
             "name": "webmozart/assert",
             "version": "1.3.0",
-            "source": {
+$            "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
                 "reference": "0df1908962e7a3071564e857d86874dad1ef204a"
