@@ -9006,3 +9006,12 @@ body {
   font-size: 0.9em;
 }
 
+/* forms */
+
+#follow_form button {
+  margin: 0 auto;
+  display: block;
+  margin-top: 25px;
+  width: 82px;
+}
+

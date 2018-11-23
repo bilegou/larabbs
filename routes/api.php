@@ -133,6 +133,17 @@ $api->version('v1',[
             //当前登录用户权限
             $api->get('user/permissions','permissionsController@index')->name('api.user.permissions.index');
 
+            //粉丝接口
+            $api->get('user/followers','FollowersController@followersIndex')->name('api.user.followers.followersIndex');
+            //关注人接口
+            $api->get('user/followings','FollowersController@followingsIndex')->name('api.user.followers.followingsIndex');
+            //关注接口
+            $api->post('users/{user}/followers','FollowersController@store')->name('api.user.follower.store');
+            //取消关注接口
+            $api->delete('users/{user}/followers','FollowersController@destroy')->name('api.user.follower.destroy');
+            //关注人的文章接口
+            $api->get('users/followingsTopics','FollowersController@followingsTopics')->name('api.user.followingsTopics');
+
         });
     });
 

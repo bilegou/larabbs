@@ -19,6 +19,10 @@
                         <img class="thumbnail img-responsive" src="{{ $user->avatar }}" width="300px" height="300px">
                     </div>
                     @endif
+                    
+                    @if (Auth::check())
+                    @include('users._follow_form')
+                    @endif
                     <div class="media-body">
                         <hr>
                         <h4><strong>个人简介</strong></h4>

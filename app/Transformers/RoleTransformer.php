@@ -14,6 +14,4 @@ class RoleTransformer extends TransformerAbstract{
 		];
 
 	}
-
-
 }
