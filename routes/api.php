@@ -53,6 +53,9 @@ $api->version('v1',[
     //登陆
     $api->post('authorizations', 'AuthorizationsController@store')->name('api.authorizations.store');
 
+    //小程序登录
+     $api->post('weapp/authorizations', 'AuthorizationsController@weappStore')->name('api.weapp.authorizations.store');
+
     //更新token
     $api->put('authorizations/current','AuthorizationsController@update')->name('api.authorizations.update');
 
@@ -85,6 +88,7 @@ $api->version('v1',[
 
         //资源推荐接口
         $api->get('links','LinksController@index')->name('api.links.index');
+
         //活跃用户接口
         $api->get('actived/users','UsersController@activedIndex')->name('api.actived.users.activedIndex');
 
@@ -135,14 +139,20 @@ $api->version('v1',[
 
             //粉丝接口
             $api->get('user/followers','FollowersController@followersIndex')->name('api.user.followers.followersIndex');
+
             //关注人接口
             $api->get('user/followings','FollowersController@followingsIndex')->name('api.user.followers.followingsIndex');
+
             //关注接口
             $api->post('users/{user}/followers','FollowersController@store')->name('api.user.follower.store');
+
             //取消关注接口
             $api->delete('users/{user}/followers','FollowersController@destroy')->name('api.user.follower.destroy');
+
             //关注人的文章接口
             $api->get('users/followingsTopics','FollowersController@followingsTopics')->name('api.user.followingsTopics');
+
+            
 
         });
     });
