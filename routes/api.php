@@ -44,6 +44,9 @@ $api->version('v1',[
     //用户接口注册
     $api->post('users', 'UsersController@store')->name('api.users.store');
 
+    //小程序注册接口
+    $api->post('weapp/users', 'UsersController@weappStore')->name('api.weapp.users.store');
+
     //用户验证码
     $api->post('captchas', 'CaptchasController@store')->name('api.captchas.store');
 
@@ -54,7 +57,7 @@ $api->version('v1',[
     $api->post('authorizations', 'AuthorizationsController@store')->name('api.authorizations.store');
 
     //小程序登录
-     $api->post('weapp/authorizations', 'AuthorizationsController@weappStore')->name('api.weapp.authorizations.store');
+    $api->post('weapp/authorizations', 'AuthorizationsController@weappStore')->name('api.weapp.authorizations.store');
 
     //更新token
     $api->put('authorizations/current','AuthorizationsController@update')->name('api.authorizations.update');
@@ -152,7 +155,7 @@ $api->version('v1',[
             //关注人的文章接口
             $api->get('users/followingsTopics','FollowersController@followingsTopics')->name('api.user.followingsTopics');
 
-            
+
 
         });
     });
