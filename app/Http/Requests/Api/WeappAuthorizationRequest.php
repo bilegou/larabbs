@@ -2,8 +2,6 @@
 
 namespace App\Http\Requests\Api;
 
-use Illuminate\Foundation\Http\FormRequest;
-
 class WeappAuthorizationRequest extends FormRequest
 {
     /**
@@ -11,10 +9,6 @@ class WeappAuthorizationRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
-        return true;
-    }
 
     /**
      * Get the validation rules that apply to the request.
@@ -24,7 +18,7 @@ class WeappAuthorizationRequest extends FormRequest
     public function rules()
     {
         return [
-            
+
             'code'=>'required|string',
         ];
     }

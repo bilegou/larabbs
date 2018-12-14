@@ -10,9 +10,6 @@ class CategoriesController extends Controller
 {
     public function index(){
 
-    	$categories  = Category::all();
-
-    	return $this->response->item($categories,new CategoryTransformer)->setStatusCode(201);
-
+    	return $this->response->collection(Category::all(), new CategoryTransformer());
     }
 }

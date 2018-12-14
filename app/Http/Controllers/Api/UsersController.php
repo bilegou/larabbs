@@ -57,9 +57,9 @@ class UsersController extends Controller
 			return $this->response->errorUnauthorized('验证码错误');
 		}
 
-		$miniProgram = \EasyWeChat::miniProgram();
+		$miniProgram = \EasyWeChat::miniProgram(); //传递过来的code获取openid
 
-		$data = $miniProgram->auth()->session($request->code);
+		$data = $miniProgram->auth->session($request->code);
 
 		if (isset($data['errcode'])) {
             return $this->response->errorUnauthorized('code 不正确');
@@ -105,7 +105,7 @@ class UsersController extends Controller
 
 		$user->update($attributes);
 
-		return $this->response->item($user,new UserTransformer)->setStatusCode(201);
+		return $this->response->item($user,new UserTransformer)->setStatusCode(200);
 	}
 
 	//通过接口返回查询用户资料
@@ -120,8 +120,10 @@ class UsersController extends Controller
     	return $this->response->item($user->getActiveUsers(),new UserTransformer());
     }
 
+    public function show(User $user){
 
-
+    	return $this->response->item($user,new UserTransformer());
+    }
 
 
 

@@ -39,6 +39,7 @@ class UserRequest extends FormRequest
             ];
             break;
             
+            case 'PUT':
             case 'PATCH':
             $userId = \Auth::guard('api')->id();
 
@@ -50,11 +51,8 @@ class UserRequest extends FormRequest
                 'avatar_image_id' => 'exists:images,id,type,avatar,user_id,'.$userId,
             ];
             break;
-            
         }
-
     }
-
 
     public function attributes()
     {

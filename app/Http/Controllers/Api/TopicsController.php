@@ -13,9 +13,8 @@ class TopicsController extends Controller
 
 	public function index(Request $request,Topic $topic){
 
-
+		$category_id = $request->category_id;
 		$query = $topic->query();
-
 		switch ($request->order) {
 			case 'recent':
 				$query->recent();
@@ -25,13 +24,17 @@ class TopicsController extends Controller
 				$query->recentReplied();
 				break;
 		}
+		if($category_id != 0){
 
-		$topics = $query->paginate(20);
+			$topics = $query->where('category_id',$category_id)->paginate(10);
+		}else{
 
+			$topics = $query->paginate(10);
+		}
+		
 		return $this->response->paginator($topics,new TopicTransformer);
 	}
-
-	public function userIndex(User $user){
+ 	public function userIndex(User $user){
 
 		$topics = $user->topics()->recent()->paginate(20);
 

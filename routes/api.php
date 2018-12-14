@@ -65,6 +65,8 @@ $api->version('v1',[
     //删除token
     $api->delete('authorizations/current','AuthorizationsController@destroy')->name('api.authorizations.destroy');
 
+
+
    });
 
     $api->group([
@@ -95,7 +97,12 @@ $api->version('v1',[
         //活跃用户接口
         $api->get('actived/users','UsersController@activedIndex')->name('api.actived.users.activedIndex');
 
+        //分类接口
+        $api->get('categories','CategoriesController@index')->name('api.categories.index');
 
+        //获取用户信息（游客）
+        $api->get('users/{user}','UsersController@show')->name('api.users.show');
+        
 
         // 需要 token 验证的接口
     $api->group(['middleware' => 'api.auth'], function($api) {
@@ -108,9 +115,6 @@ $api->version('v1',[
 
             //图片资源接口
             $api->post('images', 'ImagesController@store')->name('api.images.store');
-
-            //分类接口
-            $api->get('categories','CategoriesController@index')->name('api.categories.index');
 
             //增添文章接口
             $api->post('topics','TopicsController@store')->name('api.topics.store');
@@ -155,7 +159,8 @@ $api->version('v1',[
             //关注人的文章接口
             $api->get('users/followingsTopics','FollowersController@followingsTopics')->name('api.user.followingsTopics');
 
-
+            //小程序个人资料更新接口
+            $api->put('user', 'UsersController@update')->name('api.user.update');
 
         });
     });
