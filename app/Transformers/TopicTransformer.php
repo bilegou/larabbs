@@ -5,11 +5,11 @@ use App\Models\Topic;
 use League\Fractal\TransformerAbstract;
 use App\Transformers\UserTransformer;
 use App\Transformers\CategoryTransformer;
-
+use App\Transformers\ReplyTransformer;
 
 class TopicTransformer extends TransformerAbstract{
 
-	protected $availableIncludes = ['user', 'category'];//启用包括的关联方法
+	protected $availableIncludes = ['user', 'category','topReplies'];//启用包括的关联方法(对应下方的include方法)
 	
 	public function transform(Topic $topic){
 
@@ -40,5 +40,10 @@ class TopicTransformer extends TransformerAbstract{
 	public function includeCategory(Topic $topic){
 
 		return $this->item($topic->category,new CategoryTransformer());
+	}
+
+	public function includeTopReplies(Topic $topic){
+
+		return $this->collection($topic->topReplies,new ReplyTransformer());
 	}
 }

@@ -23,7 +23,6 @@ class NotificationsController extends Controller
     	];
     }
 
-
     public function read(Notification $notification){
 
         $notification->id ? $this->user()->markAsRead($notification) : $this->user()->markAsRead();

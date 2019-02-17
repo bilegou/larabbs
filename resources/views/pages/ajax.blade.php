@@ -50,6 +50,27 @@ body{height:100%;margin:0px;padding:0px}
 
     })
 
+    var t = ['b','a','c','d',4,23,42,9,'a']
+
+    result = t.splice(0,3,'f');
+
+    var b = 1000000;
+
+    stringA  = 'Chartage';
+    var str="(555)666-1212"
+    tags = /\((\d{3})\)/g
+
+
+
+    g = str.replace(tags,'$1+')
+    document.write(str.match(tags))
+
+    stringB  = 'a';
+    e = stringA.indexOf(stringB,6);
+    d = stringA + stringB
+    c = stringA.charCodeAt(0);
+    console.log(g)
+
     // var map = new BMap.Map("allmap");
     // var point = new BMap.Point(116.331398,39.897445);
     // map.centerAndZoom(point,12);

@@ -36,8 +36,6 @@ class Test{
 			return json_encode("邮箱格式不符合！");
 		}
 
-
-
 	}
 
 }

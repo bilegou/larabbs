@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use App\Models\User;
 use App\Http\Controllers\Test;
-use DB;
 
 use Illuminate\Http\Request;
 
@@ -20,9 +19,7 @@ class PagesController extends Controller
     }
 
     public function ajax(){
-
         return view('pages.ajax');
-
     }
 
     public function getCount($id,$name){

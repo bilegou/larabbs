@@ -14,6 +14,9 @@ class UserTransformer extends TransformerAbstract
 
     public function transform(User $user)
     {
+
+
+        // dd($user->introduction);
         return [
             'id' => $user->id,
             'name' => $user->name,

@@ -40,7 +40,7 @@ class AuthorizationsController extends Controller
             if(isset($data['errcode'])){ //判断是否code错误返回
 
                 return $this->response->errorUnauthorized('code 不正确');
-            }
+            } 
 
             $user = User::where('weapp_openid',$data['openid'])->first();//用openid去查询是否存在openid注册登录过的用户
 
@@ -135,7 +135,7 @@ class AuthorizationsController extends Controller
     	$token = Auth::guard('api')->fromUser($user);
     	return $this->respondWithToken($token)->setStatusCode(201);
     }
-
+    
     public function respondWithToken($token){	//统一请求返回token格式
         
     	return $this->response->array([
